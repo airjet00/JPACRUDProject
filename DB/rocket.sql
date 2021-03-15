@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `rocket` (
 ENGINE = InnoDB;
 
 SET SQL_MODE = '';
-DROP USER IF EXISTS rocketuser@localhost;
+-- DROP USER rocketuser@localhost;
 SET SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 CREATE USER 'rocketuser'@'localhost' IDENTIFIED BY 'rocketuser';
 
@@ -58,4 +58,3 @@ INSERT INTO `rocket` (`id`, `name`, `height`, `description`, `diameter`, `countr
 INSERT INTO `rocket` (`id`, `name`, `height`, `description`, `diameter`, `country`, `cost_per_launch`, `max_payload`, `mass`, `is_active`, `total_launches`, `failed_launches`, `first_flight`, `last_flight`) VALUES (2, 'Saturn V', 110, 'Super heavy-lift launch vehicle certified for human-rating used by NASA between 1967 and 1973.', 10.1, 'U.S.', 185, 140000, 2900000, 0, 13, 1, '1967-11-09', '1973-05-14');
 
 COMMIT;
-
