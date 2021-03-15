@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,37 +13,17 @@
 <body>
 
 <h1>Add the Rocket</h1>
-<form action="" method="GET">
-<table>
+<form action="addNewRocket.do" method="post">
 
-<thead>
-Rocket:
-</thead>
-<tr>
-<td>
 Name:<input type="text" name="name">
-</td>
-</tr>
-<tr>
-<td>
+
 Height:<input type="text" name="height">
-</td>
-</tr>
-<tr>
-<td>
+
 Description:<input type="text" name="description">
-</td>
-</tr>
 
-<!-- <input type="text" name="rid">
-<input type="text" name="rid">
-<input type="text" name="rid">
-<input type="text" name="rid"> -->
 
-</table>
 
 <input type="submit" value="Add Rocket">
- 
 
 </form>
 

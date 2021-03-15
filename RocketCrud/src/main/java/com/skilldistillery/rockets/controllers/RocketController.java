@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.skilldistillery.rockets.data.RocketDAO;
 import com.skilldistillery.rockets.entities.Rocket;
@@ -44,16 +45,20 @@ public class RocketController {
 		return mv;
 	}
 	
-//	  @RequestMapping(path = "NewState.do", method = RequestMethod.POST)
-//	  public ModelAndView setState(State state, RedirectAttributes redir) {
-//		  ModelAndView mv = new ModelAndView();
-//		  stateDAO.addState(state);
-//		  redir.addFlashAttribute("state", state);
-//		  mv.setViewName("redirect:stateAdded.do");
-//		  return mv;
-//	  }
-//	  
-//	  
+	  @RequestMapping(path = "addNewRocket.do", method= RequestMethod.POST)
+	  public String setRocket(Rocket rocket, String name, Integer height, String description ) {
+		  ModelAndView mv = new ModelAndView();
+		  rocket.setName(name);
+		  rocket.setHeight(height);
+		  rocket.setDescription(description);
+		  dao.create(rocket);
+		  mv.addObject("rocket", rocket);
+//		  redir.addFlashAttribute("rocket", rocket);
+//		  mv.setViewName("rocket/result");
+		  return "rocket/result";
+	  }
+	  
+	  
 //	  // TODO : Implement a request handler for:
 //	  // path "stateAdded.do"
 //	  // method GET
@@ -61,10 +66,10 @@ public class RocketController {
 //	  // return : ModelAndView
 //	  // view : "WEB-INF/result.jsp"; "result" if using InternalResourceViewResolver with prefix/suffix
 //	  // Note: fix other request handler methods to use InternalResourceViewResolver
-//	  @RequestMapping(path="stateAdded.do", method = RequestMethod.GET)
-//	  public ModelAndView  stateControl() {
+//	  @RequestMapping(path="rocketAdded.do", method = RequestMethod.GET)
+//	  public ModelAndView  newRocket() {
 //		  ModelAndView mv = new ModelAndView();
-//		  mv.setViewName("result");
+//		  mv.setViewName("rocket/result");
 //		  return mv;
 //	  }
 	
