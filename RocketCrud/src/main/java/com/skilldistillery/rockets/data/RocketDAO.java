@@ -12,5 +12,9 @@ public interface RocketDAO {
 	
 	public Rocket create(Rocket rocket);
 	
+	public Rocket update(int rid, String name, Integer height, String description);
+	
+	public Rocket delete(int rid); 
+	
 	
 }

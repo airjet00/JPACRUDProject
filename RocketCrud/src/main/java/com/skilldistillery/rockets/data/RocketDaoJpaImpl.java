@@ -36,18 +36,32 @@ public class RocketDaoJpaImpl implements RocketDAO {
 	@Override
 	public Rocket create(Rocket rocket) {
 
-//		em.getTransaction().begin();
-	    
-//		String sql = "INSERT INTO Rocket rocket(name, height, description) "
-//				+ " VALUES (\"rocket.getName()\", \"rocket.getHeight()\", \"rocket.getDescription()\")";
-//
-//		em.createQuery(sql, Rocket.class).executeUpdate();
-		
 		em.persist(rocket);
 		
 		em.flush();
 		
-//		em.getTransaction().commit();
+		return rocket;
+	}
+	
+	public Rocket update(int rid, String name, Integer height, String description) {
+		
+		Rocket rocket = em.find(Rocket.class, rid);
+		
+		rocket.setName(name);
+		rocket.setHeight(height);
+		rocket.setDescription(description);
+		
+		em.persist(rocket);
+		
+		return rocket;
+	}
+
+	@Override
+	public Rocket delete(int rid) {
+
+		Rocket rocket = em.find(Rocket.class, rid);
+		
+		em.remove(rocket);
 		
 		return rocket;
 	}

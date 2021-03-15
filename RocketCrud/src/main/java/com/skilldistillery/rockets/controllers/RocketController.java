@@ -1,5 +1,6 @@
 package com.skilldistillery.rockets.controllers;
 
+import java.rmi.server.RMIClassLoader;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class RocketController {
 	@RequestMapping(path={"/", "home.do"})
 	public String index(Model model) {
 		List<Rocket> rockets = dao.findAll();
-		model.addAttribute("rockets", rockets); //debug 
+		model.addAttribute("rockets", rockets); 
 		return "index";
 	}
 	
@@ -45,6 +46,8 @@ public class RocketController {
 		return mv;
 	}
 	
+//TODO set up redir 
+	
 	  @RequestMapping(path = "addNewRocket.do", method= RequestMethod.POST)
 	  public String setRocket(Rocket rocket, String name, Integer height, String description ) {
 		  ModelAndView mv = new ModelAndView();
@@ -58,20 +61,51 @@ public class RocketController {
 		  return "rocket/result";
 	  }
 	  
+	  @RequestMapping(path = "updateRocketForm.do")
+	  public ModelAndView updatePage(Integer rid) {
+		  ModelAndView mv = new ModelAndView();
+		  Rocket rocket = dao.findById(rid);
+		  
+		  mv.addObject("rocket", rocket);
+		  mv.setViewName("rocket/update");
+		  return mv;
+	  }
 	  
-//	  // TODO : Implement a request handler for:
-//	  // path "stateAdded.do"
-//	  // method GET
-//	  // command object : State
-//	  // return : ModelAndView
-//	  // view : "WEB-INF/result.jsp"; "result" if using InternalResourceViewResolver with prefix/suffix
-//	  // Note: fix other request handler methods to use InternalResourceViewResolver
-//	  @RequestMapping(path="rocketAdded.do", method = RequestMethod.GET)
-//	  public ModelAndView  newRocket() {
-//		  ModelAndView mv = new ModelAndView();
-//		  mv.setViewName("rocket/result");
-//		  return mv;
-//	  }
+	  @RequestMapping(path="updateRocket.do", method= RequestMethod.POST)
+	  public ModelAndView updateRocket(int rid, String name, Integer height, String description ) {
+		  ModelAndView mv = new ModelAndView();
+		  Rocket rocket = new Rocket();
+		  rocket.setName(name);
+		  rocket.setHeight(height);
+		  rocket.setDescription(description);
+		  dao.update(rid, name, height, description);
+		  mv.addObject("rocket", rocket);
+		  mv.setViewName("rocket/result");  
+		  
+		  return mv;
+		  
+	  }
+
+	  @RequestMapping(path="deleteRocketForm.do")
+	  public ModelAndView deletePage(Integer rid) {
+		  ModelAndView mv = new ModelAndView();
+		  Rocket rocket = dao.findById(rid);
+		  mv.addObject("rocket", rocket);
+		  mv.setViewName("rocket/delete");
+		  return mv;
+		  
+	  }
+	  
+	  @RequestMapping(path="deleteRocket.do", method = RequestMethod.POST)
+	  public ModelAndView deleteRocket(int rid) {
+		  ModelAndView mv = new ModelAndView();
+		  Rocket rocket = new Rocket();
+		  dao.delete(rid);
+		  mv.addObject("rocket", rocket);
+		  mv.setViewName("rocket/result");
+		  return mv;
+	  }
+
 	
 	
 }

@@ -24,7 +24,18 @@
 <h3>Add New Rocket</h3>
 <form action="addRocket.do" method="GET">
 <input type="submit" value="Add">
+</form>
 
+<h3>Update Rocket</h3>
+<form action="updateRocketForm.do" method="GET">
+ID: <input type="text" name=rid>
+<input type="submit" value="Submit">
+</form>
+
+<h3>Delete Rocket</h3>
+<form action="deleteRocketForm.do" method="GET">
+ID: <input type="text" name=rid>
+<input type="submit" value="Submit">
 
 </form>
 

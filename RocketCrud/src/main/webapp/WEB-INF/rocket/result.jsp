@@ -9,6 +9,9 @@
 </head>
 <body>
 <h1>Rocket Result</h1>
+
+
+
 <ul>
 
 <li>${rocket.id} ${rocket.name}</li>
