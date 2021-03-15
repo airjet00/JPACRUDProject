@@ -9,9 +9,10 @@
 </head>
 <body>
 <h1>Rocket Result</h1>
+<c:choose>
+<c:when test="${rocket.name == null}"><h3>Rocket has been deleted</h3></c:when>
 
-
-
+<c:otherwise>
 <ul>
 
 <li>${rocket.id} ${rocket.name}</li>
@@ -24,6 +25,7 @@
 <li></li>
 
 </ul>
-
+</c:otherwise>
+</c:choose>
 </body>
 </html>
