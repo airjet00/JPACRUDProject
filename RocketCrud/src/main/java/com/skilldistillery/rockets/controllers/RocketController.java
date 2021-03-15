@@ -49,11 +49,13 @@ public class RocketController {
 //TODO set up redir 
 	
 	  @RequestMapping(path = "addNewRocket.do", method= RequestMethod.POST)
-	  public String setRocket(Rocket rocket, String name, Integer height, String description ) {
+	  public String setRocket(Rocket rocket, String name, Integer height, String description, Double diameter, String country ) {
 		  ModelAndView mv = new ModelAndView();
 		  rocket.setName(name);
 		  rocket.setHeight(height);
 		  rocket.setDescription(description);
+		  rocket.setDiameter(diameter);
+		  rocket.setCountry(country);
 		  dao.create(rocket);
 		  mv.addObject("rocket", rocket);
 //		  redir.addFlashAttribute("rocket", rocket);

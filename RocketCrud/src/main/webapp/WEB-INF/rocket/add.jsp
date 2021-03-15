@@ -21,6 +21,10 @@ Height:<input type="text" name="height">
 
 Description:<input type="text" name="description">
 
+Diameter:<input type="text" name="diameter">
+
+Country:<input type="text" name="country">
+
 
 
 <input type="submit" value="Add Rocket">

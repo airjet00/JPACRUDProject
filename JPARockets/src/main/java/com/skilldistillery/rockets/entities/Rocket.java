@@ -14,6 +14,10 @@ public class Rocket {
 	private Integer height;
 	
 	private String description;
+	
+	private Double diameter;
+	
+	private String country;
 
 	public Rocket() {}
 	
@@ -29,6 +33,7 @@ public class Rocket {
 		return id;
 	}
 
+	//TODO Take out
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -57,6 +62,22 @@ public class Rocket {
 		this.description = description;
 	}
 
+	public Double getDiameter() {
+		return diameter;
+	}
+
+	public void setDiameter(Double diameter) {
+		this.diameter = diameter;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -68,9 +89,15 @@ public class Rocket {
 		builder.append(height);
 		builder.append(", description=");
 		builder.append(description);
+		builder.append(", diameter=");
+		builder.append(diameter);
+		builder.append(", country=");
+		builder.append(country);
 		builder.append("]");
 		return builder.toString();
 	}
+
+
 
 
 	

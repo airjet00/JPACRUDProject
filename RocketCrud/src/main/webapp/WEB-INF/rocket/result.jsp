@@ -17,12 +17,9 @@
 
 <li>${rocket.id} ${rocket.name}</li>
 <li>${rocket.description}</li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
-<li></li>
+<li>${rocket.diameter}</li>
+<li>${rocket.country}</li>
+
 
 </ul>
 </c:otherwise>
