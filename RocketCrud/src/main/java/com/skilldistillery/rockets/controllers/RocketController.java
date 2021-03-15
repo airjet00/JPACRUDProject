@@ -74,13 +74,18 @@ public class RocketController {
 	  }
 	  
 	  @RequestMapping(path="updateRocket.do", method= RequestMethod.POST)
-	  public ModelAndView updateRocket(int rid, String name, Integer height, String description ) {
+	  public ModelAndView updateRocket(int rid, String name, Integer height, String description, Double diameter, String country,
+				Double costPerLaunch, Integer mass) {
 		  ModelAndView mv = new ModelAndView();
 		  Rocket rocket = new Rocket();
 		  rocket.setName(name);
 		  rocket.setHeight(height);
 		  rocket.setDescription(description);
-		  dao.update(rid, name, height, description);
+		  rocket.setDiameter(diameter);
+		  rocket.setCountry(country);
+		  rocket.setCostPerLaunch(costPerLaunch);
+		  rocket.setMass(mass);
+		  dao.update(rid, name, height, description, diameter, country, costPerLaunch, mass);
 		  mv.addObject("rocket", rocket);
 		  mv.setViewName("rocket/result");  
 		  

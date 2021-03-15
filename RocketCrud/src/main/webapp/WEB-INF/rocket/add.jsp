@@ -25,6 +25,10 @@ Diameter:<input type="text" name="diameter">
 
 Country:<input type="text" name="country">
 
+Cost Per Launch:<input type="text" name="costPerLaunch">
+
+Mass:<input type="text" name="mass">
+
 
 
 <input type="submit" value="Add Rocket">

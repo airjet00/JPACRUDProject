@@ -16,10 +16,18 @@ ${rocket.name} <br> New Name:<input type="text" name="name">
 ${rocket.height} <br> New Height:<input type="text" name="height">
 <br>
 ${rocket.description} <br> New description:<input type="text" name="description">
-<input type="hidden" name="rid" value="${rocket.id}">
+<br>
+${rocket.diameter} <br> New diameter:<input type="text" name="diameter">
+<br>
+${rocket.country} <br> New country:<input type="text" name="country">
+<br>
+${rocket.costPerLaunch} <br> New Cost Per Launch:<input type="text" name="costPerLaunch">
+<br>
+${rocket.mass} <br> New mass:<input type="text" name="mass">
 <br>
 
 
+<input type="hidden" name="rid" value="${rocket.id}">
 <input type="submit" value="Submit">
 
 </form>

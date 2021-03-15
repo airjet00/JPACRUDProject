@@ -10,18 +10,39 @@
 <body>
 <h1>Rocket Result</h1>
 <c:choose>
-<c:when test="${rocket.name == null}"><h3>Rocket has been deleted</h3></c:when>
-
+<c:when test="${rocket.name == null}"><h3>Rocket has been deleted</h3>
+<form action="home.do">
+<input type="submit" value="HOME">
+</form>
+</c:when>
 <c:otherwise>
-<ul>
+<table>
 
-<li>${rocket.id} ${rocket.name}</li>
-<li>${rocket.description}</li>
-<li>${rocket.diameter}</li>
-<li>${rocket.country}</li>
+<tr>
+<td>${rocket.id} ${rocket.name}</td>
+</tr>
+<tr>
+<td>${rocket.description}</td>
+</tr>
+<tr>
+<td>${rocket.diameter}</td>
+</tr>
+<tr>
+<td>${rocket.country}</td>
+</tr>
+<tr>
+<td>${rocket.costPerLaunch}</td>
+</tr>
+<tr>
+<td>${rocket.mass}</td>
+</tr>
 
 
-</ul>
+
+</table>
+<form action="home.do">
+<input type="submit" value="HOME">
+</form>
 </c:otherwise>
 </c:choose>
 </body>

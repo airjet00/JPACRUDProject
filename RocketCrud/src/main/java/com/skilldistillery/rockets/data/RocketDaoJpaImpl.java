@@ -43,13 +43,18 @@ public class RocketDaoJpaImpl implements RocketDAO {
 		return rocket;
 	}
 	
-	public Rocket update(int rid, String name, Integer height, String description) {
+	public Rocket update(int rid, String name, Integer height, String description, Double diameter, String country,
+			Double costPerLaunch, Integer mass) {
 		
 		Rocket rocket = em.find(Rocket.class, rid);
 		
 		rocket.setName(name);
 		rocket.setHeight(height);
 		rocket.setDescription(description);
+		rocket.setDiameter(diameter);
+		rocket.setCountry(country);
+		rocket.setCostPerLaunch(costPerLaunch);
+		rocket.setMass(mass);
 		
 		em.persist(rocket);
 		

@@ -18,6 +18,10 @@ public class Rocket {
 	private Double diameter;
 	
 	private String country;
+	
+	private Double costPerLaunch;
+	
+	private Integer mass;
 
 	public Rocket() {}
 	
@@ -78,6 +82,22 @@ public class Rocket {
 		this.country = country;
 	}
 
+	public Double getCostPerLaunch() {
+		return costPerLaunch;
+	}
+
+	public void setCostPerLaunch(Double costPerLaunch) {
+		this.costPerLaunch = costPerLaunch;
+	}
+
+	public Integer getMass() {
+		return mass;
+	}
+
+	public void setMass(Integer mass) {
+		this.mass = mass;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -93,9 +113,15 @@ public class Rocket {
 		builder.append(diameter);
 		builder.append(", country=");
 		builder.append(country);
+		builder.append(", costPerLaunch=");
+		builder.append(costPerLaunch);
+		builder.append(", mass=");
+		builder.append(mass);
 		builder.append("]");
 		return builder.toString();
 	}
+
+
 
 
 

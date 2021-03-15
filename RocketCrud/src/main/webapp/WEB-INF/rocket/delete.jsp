@@ -18,18 +18,9 @@
 </tr>
 
 <tr>
-<td><strong>Height: </strong>${rocket.height}</td>
-</tr>
-
-
-<tr>
 <td><strong>Description: </strong>${rocket.description}</td>
 </tr>
 
-
-<tr>
-<td></td>
-</tr>
 
 
 </table>
